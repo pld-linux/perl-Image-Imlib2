@@ -1,18 +1,22 @@
+#
+# Conditional build:
+%bcond_without	tests	# do not perform "make test"
+#
 %include	/usr/lib/rpm/macros.perl
 %define		pdir	Image
 %define		pnam	Imlib2
 Summary:	Interface to the Imlib2 image library
 Name:		perl-Image-Imlib2
 Version:	1.01
-Release:	0.9
-License:	GPL
+Release:	2
+# same as perl
+License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
 # Source0-md5:	506ddc41150c93da005e96ad987daee7
-BuildRequires:	imlib2-devel
+#BuildRequires:	imlib2-devel
 BuildRequires:	perl-devel >= 5.6
 BuildRequires:	perl-Module-Build
-BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -27,14 +31,22 @@ primitives, and output the images in a range of formats.
 
 %build
 %{__perl} Makefile.PL \
-	destdir=$RPM_BUILD_ROOT
-%{__make}
+	INSTALLDIRS=vendor
+%{__make} \
+	OPTIMIZE="%{rpmcflags}"
+
+%{?with_tests:%{__make} test}
 
 %install
 rm -rf $RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
+for f in examples/* ; do
+	sed -e "s@#!/usr/local/bin/perl@#!/usr/bin/perl@" $f \
+		> $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}/$f
+done
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -42,8 +54,11 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc Changes README examples
-%{perl_sitearch}/Image/Imlib2.pm
-%dir %{perl_sitearch}/auto/Image/Imlib2
-%{perl_sitearch}/auto/Image/Imlib2/*.bs
-%{perl_sitearch}/auto/Image/Imlib2/*.so
+%{perl_vendorarch}/Image/Imlib2.pm
+%dir %{perl_vendorarch}/auto/Image/Imlib2
+%{perl_vendorarch}/auto/Image/Imlib2/*.bs
+%attr(755,root,root) %{perl_vendorarch}/auto/Image/Imlib2/*.so
+%dir %{_examplesdir}/%{name}-%{version}
+%{_examplesdir}/%{name}-%{version}/*.txt
+%attr(755,root,root) %{_examplesdir}/%{name}-%{version}/*.pl
 %{_mandir}/man[13]/*
