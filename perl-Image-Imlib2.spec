@@ -43,4 +43,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc Changes README examples
 %{perl_sitearch}/Image/Imlib2.pm
+%dir %{perl_sitearch}/auto/Image/Imlib2
+%{perl_sitearch}/auto/Image/Imlib2/*.bs
+%{perl_sitearch}/auto/Image/Imlib2/*.so
 %{_mandir}/man[13]/*
