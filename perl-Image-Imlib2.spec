@@ -14,7 +14,7 @@ License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
 # Source0-md5:	506ddc41150c93da005e96ad987daee7
-#BuildRequires:	imlib2-devel
+BuildRequires:	imlib2-devel
 BuildRequires:	perl-devel >= 5.6
 BuildRequires:	perl-Module-Build
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -31,7 +31,8 @@ primitives, and output the images in a range of formats.
 
 %build
 %{__perl} Makefile.PL \
-	INSTALLDIRS=vendor
+	INSTALLDIRS=vendor \
+	destdir=$RPM_BUILD_ROOT
 %{__make} \
 	OPTIMIZE="%{rpmcflags}"
 
@@ -43,7 +44,8 @@ install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
-for f in examples/* ; do
+cd examples
+for f in * ; do
 	sed -e "s@#!/usr/local/bin/perl@#!/usr/bin/perl@" $f \
 		> $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}/$f
 done
