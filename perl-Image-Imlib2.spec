@@ -6,6 +6,7 @@
 %define		pdir	Image
 %define		pnam	Imlib2
 Summary:	Interface to the Imlib2 image library
+Summary(pl):	Interfejs do biblioteki obrazów Imlib2
 Name:		perl-Image-Imlib2
 Version:	1.01
 Release:	2
@@ -15,8 +16,9 @@ Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
 # Source0-md5:	506ddc41150c93da005e96ad987daee7
 BuildRequires:	imlib2-devel
-BuildRequires:	perl-devel >= 5.6
 BuildRequires:	perl-Module-Build
+BuildRequires:	perl-devel >= 1:5.8.0
+BuildRequires:	rpm-perlprov >= 4.1-13
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -25,6 +27,13 @@ image file loading and saving as well as manipulation, arbitrary
 polygon support, etc. It does ALL of these operations FAST. It allows
 you to create colour images using a large number of graphics
 primitives, and output the images in a range of formats.
+
+%description -l pl
+Image::Imlib2 to perlowy port Imlib2 - biblioteki graficznej
+wczytuj±cej, zapisuj±cej i przetwarzaj±cej obrazy z obs³ug± dowolnych
+wielok±tów itp. Wykonuje WSZYSTKIE te operacje SZYBKO. Pozwala na
+tworzenie kolorowych obrazów przy u¿yciu du¿ej liczby prymitywów
+graficznych i zapis ich w wielu formatach.
 
 %prep
 %setup -q -n %{pdir}-%{pnam}-%{version}
