@@ -6,7 +6,7 @@
 %define		pdir	Image
 %define		pnam	Imlib2
 Summary:	Interface to the Imlib2 image library
-Summary(pl):	Interfejs do biblioteki obrazów Imlib2
+Summary(pl.UTF-8):   Interfejs do biblioteki obrazÃ³w Imlib2
 Name:		perl-Image-Imlib2
 Version:	1.07
 Release:	1
@@ -28,11 +28,11 @@ polygon support, etc. It does ALL of these operations FAST. It allows
 you to create colour images using a large number of graphics
 primitives, and output the images in a range of formats.
 
-%description -l pl
+%description -l pl.UTF-8
 Image::Imlib2 to perlowy port Imlib2 - biblioteki graficznej
-wczytuj±cej, zapisuj±cej i przetwarzaj±cej obrazy z obs³ug± dowolnych
-wielok±tów itp. Wykonuje WSZYSTKIE te operacje SZYBKO. Pozwala na
-tworzenie kolorowych obrazów przy u¿yciu du¿ej liczby prymitywów
+wczytujÄ…cej, zapisujÄ…cej i przetwarzajÄ…cej obrazy z obsÅ‚ugÄ… dowolnych
+wielokÄ…tÃ³w itp. Wykonuje WSZYSTKIE te operacje SZYBKO. Pozwala na
+tworzenie kolorowych obrazÃ³w przy uÅ¼yciu duÅ¼ej liczby prymitywÃ³w
 graficznych i zapis ich w wielu formatach.
 
 %prep
