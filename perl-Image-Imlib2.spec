@@ -6,7 +6,7 @@
 %define		pdir	Image
 %define		pnam	Imlib2
 Summary:	Interface to the Imlib2 image library
-Summary(pl.UTF-8):   Interfejs do biblioteki obrazów Imlib2
+Summary(pl.UTF-8):	Interfejs do biblioteki obrazów Imlib2
 Name:		perl-Image-Imlib2
 Version:	1.07
 Release:	1
