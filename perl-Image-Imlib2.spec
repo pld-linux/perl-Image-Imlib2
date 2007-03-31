@@ -13,8 +13,9 @@ Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
-Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
+Source0:	http://www.cpan.org/modules/by-module/Image/%{pdir}-%{pnam}-%{version}.tar.gz
 # Source0-md5:	7560f9670a3bb314f7ab9585ac40b7a2
+URL:		http://search.cpan.org/dist/Image-Imlib2/
 BuildRequires:	imlib2-devel
 BuildRequires:	perl-Module-Build
 BuildRequires:	perl-devel >= 1:5.8.0
