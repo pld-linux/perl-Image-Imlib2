@@ -44,6 +44,7 @@ graficznych i zapis ich w wielu formatach.
 	INSTALLDIRS=vendor \
 	destdir=$RPM_BUILD_ROOT
 %{__make} \
+	CC="%{__cc}" \
 	OPTIMIZE="%{rpmcflags}"
 
 %{?with_tests:%{__make} test}
