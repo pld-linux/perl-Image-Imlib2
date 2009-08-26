@@ -8,13 +8,13 @@
 Summary:	Interface to the Imlib2 image library
 Summary(pl.UTF-8):	Interfejs do biblioteki obrazów Imlib2
 Name:		perl-Image-Imlib2
-Version:	2.00
-Release:	2
+Version:	2.02
+Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/Image/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	ac2b29cf954e0e87476ae5c73f0e230d
+# Source0-md5:	61732eb6e37eeba2a7b4935677214bcf
 URL:		http://search.cpan.org/dist/Image-Imlib2/
 BuildRequires:	imlib2-devel
 BuildRequires:	perl-Module-Build
