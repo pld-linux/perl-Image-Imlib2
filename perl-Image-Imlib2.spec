@@ -17,7 +17,7 @@ Source0:	http://www.cpan.org/modules/by-module/Image/%{pdir}-%{pnam}-%{version}.
 # Source0-md5:	303b91fae2b863903e41a3cac34fa0d3
 URL:		http://search.cpan.org/dist/Image-Imlib2/
 BuildRequires:	imlib2-devel
-BuildRequires:	perl-Module-Build
+BuildRequires:	perl-Module-Build >= 0.20
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -55,6 +55,7 @@ install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
+
 cd examples
 for f in * ; do
 	sed -e "s@#!/usr/local/bin/perl@#!/usr/bin/perl@" $f \
@@ -66,7 +67,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc CHANGES README examples
+%doc CHANGES README
 %{perl_vendorarch}/Image/Imlib2.pm
 %dir %{perl_vendorarch}/auto/Image/Imlib2
 %{perl_vendorarch}/auto/Image/Imlib2/*.bs
@@ -74,4 +75,4 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_examplesdir}/%{name}-%{version}
 %{_examplesdir}/%{name}-%{version}/*.txt
 %attr(755,root,root) %{_examplesdir}/%{name}-%{version}/*.pl
-%{_mandir}/man[13]/*
+%{_mandir}/man3/Image::Imlib2*.3pm*
