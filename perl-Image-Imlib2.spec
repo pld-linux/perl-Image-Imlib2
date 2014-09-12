@@ -70,7 +70,6 @@ rm -rf $RPM_BUILD_ROOT
 %doc CHANGES README
 %{perl_vendorarch}/Image/Imlib2.pm
 %dir %{perl_vendorarch}/auto/Image/Imlib2
-%{perl_vendorarch}/auto/Image/Imlib2/*.bs
 %attr(755,root,root) %{perl_vendorarch}/auto/Image/Imlib2/*.so
 %dir %{_examplesdir}/%{name}-%{version}
 %{_examplesdir}/%{name}-%{version}/*.txt
