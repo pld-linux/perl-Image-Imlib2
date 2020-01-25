@@ -2,7 +2,6 @@
 # Conditional build:
 %bcond_without	tests	# do not perform "make test"
 #
-%include	/usr/lib/rpm/macros.perl
 %define		pdir	Image
 %define		pnam	Imlib2
 Summary:	Interface to the Imlib2 image library
