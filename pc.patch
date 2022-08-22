@@ -1,0 +1,36 @@
+--- Image-Imlib2-2.03/Build.PL.orig	2009-11-24 22:41:36.000000000 +0100
++++ Image-Imlib2-2.03/Build.PL	2022-08-23 01:02:34.292999847 +0200
+@@ -2,11 +2,14 @@
+ use strict;
+ 
+ # We need to find imlib2-config
+-my $CONFIG = "imlib2-config";
++my $CONFIG = "pkg-config imlib2";
++my $version = `$CONFIG --modversion`;
+ 
+-my $version = `$CONFIG --version`;
+ if (!$version) {
+-  warn 'You must install the imlib2 library before you can install
++  $CONFIG = "imlib2-config";
++  $version = `$CONFIG --version`;
++  if (!$version) {
++    warn 'You must install the imlib2 library before you can install
+ Image::Imlib2. You can obtain imlib2 from
+ http://sourceforge.net/projects/enlightenment/
+ 
+@@ -14,11 +17,12 @@
+ still will not work, modify the $CONFIG variable inside Build.PL to
+ point to the imlib2-config program that provides.
+ ';
+-  exit 0;
+-} else {
+-  print "Found imlib2 $version";
++    exit 0;
++  }
+ }
+ 
++print "Found imlib2 $version";
++
+ my $libs = `$CONFIG --libs`;
+ my $cflags = "-DX_DISPLAY_MISSING " . `$CONFIG --cflags`;
+ 
