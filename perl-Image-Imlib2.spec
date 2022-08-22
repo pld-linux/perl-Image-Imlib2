@@ -8,7 +8,7 @@ Summary:	Interface to the Imlib2 image library
 Summary(pl.UTF-8):	Interfejs do biblioteki obrazów Imlib2
 Name:		perl-Image-Imlib2
 Version:	2.03
-Release:	12
+Release:	13
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
